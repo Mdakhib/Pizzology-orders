@@ -3,3 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.cardContainer{
+  display: flex;
+  flex-wrap: wrap;
+}
