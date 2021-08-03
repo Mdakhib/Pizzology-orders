@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+// import About from "../components/About/About";
 import { Card } from "../components/Cards/Card";
 import { Header } from "../components/Header/Header";
 
@@ -42,12 +43,15 @@ export const Home = () => {
   return (
     <div>
       <Header />
-      <div className="btnWrapper">
-        <button onClick={() => sortRecipeList("price")}>sort</button>
-        <button onClick={() => sortRecipeList("rating")}>rating</button>
-        <button onClick={() => sortRecipeList("veg")}>veg</button>
-        <button onClick={() => sortRecipeList("nonVeg")}>non veg</button>
-        <button onClick={() => sortRecipeList("all")}>All</button>
+      {/* <About /> */}
+      <div className="btnContainer">
+        <div className="btnWrapper">
+          <button onClick={() => sortRecipeList("price")}>sort</button>
+          <button onClick={() => sortRecipeList("rating")}>rating</button>
+          <button onClick={() => sortRecipeList("veg")}>veg</button>
+          <button onClick={() => sortRecipeList("nonVeg")}>non veg</button>
+          <button onClick={() => sortRecipeList("all")}>All</button>
+        </div>
       </div>
       <div className="cardContainer">
         {recipeList.map((recipe) => {

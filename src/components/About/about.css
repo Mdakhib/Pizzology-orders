@@ -1,0 +1,38 @@
+.bgContainer{
+    background: url('../../images/bg.webp');
+    height: 665px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    box-shadow: -2px -1px 150px 49px rgba(0, 0, 0, 0.75) inset;
+    opacity: 0.9;
+    /* background-attachment: fixed; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 97px !important;
+}
+
+.aboutContent{
+    width: 60%;
+    border: 2px solid pink;
+    color: white;
+    font-size: 60px;
+    letter-spacing: 2px;
+}
+
+.aboutContent span{
+    color: #FFB800;
+}
+
+@media screen and (max-width:760px){
+.aboutContent {
+    width: 60%;
+    border: 2px solid pink;
+    color: white;
+    font-size: 30px;
+    letter-spacing: 2px;
+    padding: 120px;
+}
+}

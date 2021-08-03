@@ -1,8 +1,16 @@
 .container {
     display: flex;
     justify-content: space-between;
-    background-color: cornflowerblue;
-    padding: 20px 25px;
+    background-color: white !important;
+    padding: 8px 25px;
+    box-shadow: -4px 15px 27px -9px rgba(0, 0, 0, 1);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 80px;
+    z-index: 1;
 }
 
 .logo {
@@ -10,8 +18,29 @@
     text-decoration: none;
 }
 
+.logo img {
+    height: 75px;
+    width: 100px;
+}
+
+.container .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container .wrapper a {
     margin-right: 30px;
-    font-size: 24px;
+    font-size: 20px;
     text-decoration: none;
+    color: #212121;
+    }
+
+    .container .wrapper a:hover {
+
+        color: #FFB800;
+    }
+
+    svg {
+        font-size: 30px;
 }
