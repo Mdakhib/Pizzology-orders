@@ -10,6 +10,13 @@ let initialState = {
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const total = state.basket.reduce((acc, crr) => {
+    return (acc += crr.price);
+  }, 0);
+  state.total = total;
+
+
   return (
     <AppContext.Provider value={{ dispatch, state }}>
       {children}

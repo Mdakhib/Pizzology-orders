@@ -46,6 +46,7 @@ function CartSection() {
         {state.basket.length >= 1 && (
           <button onClick={clearBasket}>Clear Item</button>
         )}
+        <h1>total INR {state.total} </h1>
       </div>
     );
 }
