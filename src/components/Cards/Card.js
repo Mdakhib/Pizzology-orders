@@ -61,6 +61,13 @@ export const Card = ({
                   setOpen={setOpen}
                   handleOpen={handleOpen}
                   handleClose={handleClose}
+                  id={id}
+                  name={name}
+                  description={description}
+                  isVeg={isVeg}
+                  rating={rating}
+                  price={price}
+                  img_url={img_url}
                 />
               </div>
             </div>
