@@ -11,18 +11,18 @@ export const Card = ({
   rating,
   price,
   img_url,
-  size
+  size,
+  toppings,
 }) => {
-  
-   const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
-   const handleOpen = () => {
-     setOpen(true);
-   };
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
-   const handleClose = () => {
-     setOpen(false);
-   };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div className="cardsContainer">
@@ -61,6 +61,7 @@ export const Card = ({
                   price={price}
                   img_url={img_url}
                   size={size}
+                  toppings={toppings}
                 />
               </div>
             </div>

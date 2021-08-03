@@ -34,6 +34,7 @@ function CartSection() {
                 price,
                 rating,
                 sizeSelect,
+                toppingName,
               } = item;
               console.log(item);
               return (
@@ -55,7 +56,12 @@ function CartSection() {
                         </p>
                       </div>
                       <div>
-                        <p>{sizeSelect?sizeSelect:'Regular'} </p>
+                        <p>{sizeSelect ? sizeSelect : "Regular"} </p>
+                      </div>
+                      <div>
+                        {toppingName.map((item) => (
+                          <p>{item}</p>
+                        ))}
                       </div>
                       <div className="cardBtnWrap">
                         <button

@@ -6,6 +6,7 @@ import Fade from "@material-ui/core/Fade";
 import "./cardmodal.css";
 import { useGlobalContext } from "../../context/context";
 import Size from "../SizeSection/Size";
+import Topping from "../ToppingSection/Topping";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -44,7 +45,6 @@ function CardModal({
 
   const [sizeSelect, setSizeSelect] = useState("");
   const [toppingName, setToppingName] = useState([]);
-  // const [ToppingSelect] = useState([]);
 
   const [isRadio] = toppings;
   const [sizeIsRadio] = size;
@@ -64,6 +64,7 @@ function CardModal({
         price,
         rating,
         sizeSelect,
+        toppingName,
       },
     });
   };
@@ -100,10 +101,20 @@ function CardModal({
                   {sizeIsRadio.isRadio ? (
                     <Size size={size} setSize={setSizeSelect} />
                   ) : (
-                    <h1>No size available</h1>
+                    <p>No size available</p>
                   )}
                 </div>
-                <div></div>
+                <div>
+                  {isRadio.isRadio ? (
+                    <Topping
+                      toppings={toppings}
+                      toppingName={toppingName}
+                      setToppingName={setToppingName}
+                    />
+                  ) : (
+                    <p>No Toppings Available</p>
+                  )}
+                </div>
                 <div className="modalBtnWrap">
                   <button className="modalButton" onClick={addItem}>
                     Add Item

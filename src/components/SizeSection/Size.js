@@ -9,8 +9,8 @@ function Size({ size, setSize }) {
             {radio.title}
             {radio.items.map((item, index) => {
               return (
-                <div key={index}>
-                  {item.size}
+                <div key={index} className='sizeWrap'>
+                  <p>{item.size}</p>
                   <input
                     type="radio"
                     value={item.size}
@@ -21,7 +21,7 @@ function Size({ size, setSize }) {
             })}
           </div>
         ) : (
-          <h1>no size available</h1>
+          <p>no size available</p>
         )
       )}
     </div>
