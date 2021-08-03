@@ -1,21 +1,25 @@
 import React from "react";
+import "./size.css";
 
 function Size({ size, setSize }) {
   return (
     <div>
       {size.map((radio) =>
         radio.isRadio ? (
-          <div>
-            {radio.title}
+          <div >
+            <p className="sizeTitle">{radio.title}</p>
+
             {radio.items.map((item, index) => {
               return (
-                <div key={index} className='sizeWrap'>
-                  <p>{item.size}</p>
-                  <input
-                    type="radio"
-                    value={item.size}
-                    onChange={(e) => setSize(e.target.value)}
-                  />
+                <div key={index} className="sizeContainer">
+                  <div  className="sizeWrap">
+                    <p className='sizeContent'>{item.size}</p>
+                    <input
+                      type="radio"
+                      value={item.size}
+                      onChange={(e) => setSize(e.target.value)}
+                    />
+                  </div>
                 </div>
               );
             })}

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import "./toping.css";
 
 function Topping({ toppings, toppingName, setToppingName }) {
   return (
@@ -6,16 +7,20 @@ function Topping({ toppings, toppingName, setToppingName }) {
       {toppings.map((radio) =>
         radio.isRadio ? (
           <div>
-            {radio.title}
+            <p className='toppingTitle'>{radio.title}</p>
             {radio.items.map((item, index) => {
               return (
-                <div key={index}>
-                  <p>{item.name} </p>
-                  <input
-                    type="checkbox"
-                    value={toppingName}
-                    onChange={() => setToppingName([...toppingName, item.name])}
-                  />
+                <div key={index} className="toppingContainer">
+                  <div className="toppingWrap">
+                    <p className='toppingContent'>{item.name} </p>
+                    <input
+                      type="checkbox"
+                      value={toppingName}
+                      onChange={() =>
+                        setToppingName([...toppingName, item.name])
+                      }
+                    />
+                  </div>
                 </div>
               );
             })}
@@ -28,4 +33,4 @@ function Topping({ toppings, toppingName, setToppingName }) {
   );
 }
 
-export default Topping
+export default Topping;

@@ -40,9 +40,9 @@ function CartSection() {
               return (
                 <div className="cart" key={id}>
                   <img src={img_url} alt={name} width="100px" />
-                  <div className="cardDetail">
+                  <div className="cartDetail">
                     <div>
-                      <h1 className="cardHeader">{name} </h1>
+                      <h1 className="cartHeader">{name} </h1>
                       <p className="desc">{description} </p>
                     </div>
                     <div>
@@ -55,12 +55,18 @@ function CartSection() {
                           Rating: <span>{rating}/5</span>{" "}
                         </p>
                       </div>
-                      <div>
-                        <p>{sizeSelect ? sizeSelect : "Regular"} </p>
+                      <div className="sizeContentWrap">
+                        Size:
+                        <p className="SizeContent">
+                          {sizeSelect ? sizeSelect : "Regular"}{" "}
+                        </p>
                       </div>
-                      <div>
+                      <div className="toppingContentWrap">
+                        <span>Topping:</span>
                         {toppingName.map((item) => (
-                          <p>{item}</p>
+                          <div className="toppingsContent">
+                            <p>{item},</p>
+                          </div>
                         ))}
                       </div>
                       <div className="cardBtnWrap">
