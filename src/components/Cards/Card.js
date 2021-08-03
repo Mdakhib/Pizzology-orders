@@ -11,17 +11,9 @@ export const Card = ({
   rating,
   price,
   img_url,
+  size
 }) => {
-  // const { dispatch } = useGlobalContext();
-
-  // const addItem = () => {
-  //   dispatch({
-  //     type: "ADD_ITEM",
-  //     payload: { id, name, img_url, description, isVeg, price, rating },
-  //   });
-  //   // alert("item added to cart");
-  // };
-
+  
    const [open, setOpen] = React.useState(false);
 
    const handleOpen = () => {
@@ -68,6 +60,7 @@ export const Card = ({
                   rating={rating}
                   price={price}
                   img_url={img_url}
+                  size={size}
                 />
               </div>
             </div>

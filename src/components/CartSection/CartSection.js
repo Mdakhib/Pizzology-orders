@@ -25,8 +25,16 @@ function CartSection() {
         ) : ( */}
           <div className="cartContainer">
             {state.basket.map((item) => {
-              const { id, name, img_url, description, isVeg, price, rating } =
-                item;
+              const {
+                id,
+                name,
+                img_url,
+                description,
+                isVeg,
+                price,
+                rating,
+                sizeSelect,
+              } = item;
               console.log(item);
               return (
                 <div className="cart" key={id}>
@@ -45,6 +53,9 @@ function CartSection() {
                         <p className="rating">
                           Rating: <span>{rating}/5</span>{" "}
                         </p>
+                      </div>
+                      <div>
+                        <p>{sizeSelect?sizeSelect:'Regular'} </p>
                       </div>
                       <div className="cardBtnWrap">
                         <button

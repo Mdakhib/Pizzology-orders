@@ -15,14 +15,15 @@ export const Cart = () => {
     <div>
       <Header />
       {state.basket.length === 0 ? (
-        <h1>Your basket is empty</h1>
+        <h1 style={{marginTop:'120px'}}>Your basket is empty</h1>
       ) : (
         <CartSection />
-      )}
+      )
+      }
       {state.basket.length >= 1 && (
         <button onClick={clearBasket}>Clear Item</button>
       )}
-      <h1>total INR {state.total} </h1>
+      <h1>total INR {state.total}/- </h1>
     </div>
   );
 };

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import "./cardmodal.css";
 import { useGlobalContext } from "../../context/context";
-
+import Size from "../SizeSection/Size";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -37,16 +37,34 @@ function CardModal({
   rating,
   price,
   img_url,
+  size,
+  toppings,
 }) {
-    const classes = useStyles();
-    
+  const classes = useStyles();
 
+  const [sizeSelect, setSizeSelect] = useState("");
+  const [toppingName, setToppingName] = useState([]);
+  // const [ToppingSelect] = useState([]);
+
+  const [isRadio] = toppings;
+  const [sizeIsRadio] = size;
+  console.log(size);
+  // console.log(sizeIsRadio);
 
   const { dispatch } = useGlobalContext();
   const addItem = () => {
     dispatch({
       type: "ADD_ITEM",
-      payload: { id, name, img_url, description, isVeg, price, rating },
+      payload: {
+        id,
+        name,
+        img_url,
+        description,
+        isVeg,
+        price,
+        rating,
+        sizeSelect,
+      },
     });
   };
 
@@ -78,6 +96,14 @@ function CardModal({
                     Rating: <span>{rating}/5</span>{" "}
                   </p>
                 </div>
+                <div>
+                  {sizeIsRadio.isRadio ? (
+                    <Size size={size} setSize={setSizeSelect} />
+                  ) : (
+                    <h1>No size available</h1>
+                  )}
+                </div>
+                <div></div>
                 <div className="modalBtnWrap">
                   <button className="modalButton" onClick={addItem}>
                     Add Item
@@ -92,4 +118,4 @@ function CardModal({
   );
 }
 
-export default CardModal
+export default CardModal;
