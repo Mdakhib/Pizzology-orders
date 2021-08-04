@@ -16,6 +16,7 @@ function Size({ size, setSize }) {
                     <p className='sizeContent'>{item.size}</p>
                     <input
                       type="radio"
+                      name='size'
                       value={item.size}
                       onChange={(e) => setSize(e.target.value)}
                     />

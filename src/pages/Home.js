@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 // import About from "../components/About/About";
 import { Card } from "../components/Cards/Card";
 import { Header } from "../components/Header/Header";
+import Loading from "../components/Loading/Loading";
 
 export const Home = () => {
   const [recipeList, setRecipeList] = useState([]);
   const [recipeCopy, setRecipeCopy] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const sortRecipeList = (id) => {
     let sortedList;
@@ -28,6 +30,8 @@ export const Home = () => {
   };
 
   useEffect(() => {
+    setLoading(true);
+
     fetch("https://run.mocky.io/v3/ec196a02-aaf4-4c91-8f54-21e72f241b68").then(
       (response) =>
         response
@@ -35,10 +39,21 @@ export const Home = () => {
           .then((data) => {
             setRecipeList(data);
             setRecipeCopy(data);
+            setLoading(false);
           })
           .catch((error) => console.log(error))
     );
   }, []);
+
+  if (loading) {
+    return (
+      <main>
+        <Header />
+
+        <Loading />
+      </main>
+    );
+  }
 
   return (
     <div>

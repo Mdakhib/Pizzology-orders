@@ -4,6 +4,7 @@ const reducer = (state, action) => {
       return { ...state, basket: [] };
 
     case "ADD_ITEM":
+
       return { ...state, basket: [...state.basket, action.payload] };
 
     case "REMOVE_ITEM":

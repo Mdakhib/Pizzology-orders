@@ -67,6 +67,8 @@ function CardModal({
         toppingName,
       },
     });
+    alert("Item Added");
+
   };
 
   return (
@@ -119,9 +121,12 @@ function CardModal({
                   <button
                     className="modalButton"
                     onClose={handleClose}
-                    onClick={addItem}
+                    onClick={() => {
+                      addItem()
+                      handleClose()
+                    }}
                   >
-                    Added to Cart
+                    Add to Cart
                   </button>
                 </div>
               </div>
