@@ -45,97 +45,138 @@ function CardModal({
 
   const [sizeSelect, setSizeSelect] = useState("");
   const [toppingName, setToppingName] = useState([]);
+const [quantity, setQuantity] = useState(1);
+const [isRadio] = toppings;
+const [sizeIsRadio] = size;
+console.log(size);
+// console.log(sizeIsRadio);
 
-  const [isRadio] = toppings;
-  const [sizeIsRadio] = size;
-  console.log(size);
-  // console.log(sizeIsRadio);
+const { dispatch } = useGlobalContext();
+const addItem = () => {
+  dispatch({
+    type: "ADD_ITEM",
+    payload: {
+      id,
+      name,
+      img_url,
+      description,
+      isVeg,
+      price,
+      rating,
+      sizeSelect,
+      toppingName,
+      quantity,
+    },
+  });
+  alert("Item Added");
+};
 
-  const { dispatch } = useGlobalContext();
-  const addItem = () => {
-    dispatch({
-      type: "ADD_ITEM",
-      payload: {
-        id,
-        name,
-        img_url,
-        description,
-        isVeg,
-        price,
-        rating,
-        sizeSelect,
-        toppingName,
-      },
-    });
-    alert("Item Added");
-
-  };
-
-  return (
+return (
+  <div>
     <div>
-      <div>
-        <Modal
-          className={classes.modal}
-          open={open}
-          onClose={handleClose}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
-          }}
-        >
-          <Fade in={open}>
-            <div className={classes.paper}>
-              <img className="modalImg" src={img_url} alt="" />
-              <div className="modalWrap">
-                <p className="modalCardName">{name} </p>
-                <p className="modalDesc">{description} </p>
-                <p className="modalIsVeg">{isVeg ? "Veg" : "Non Veg"} </p>
-                <div className="price-rating-wrap">
-                  <p className="modalPrice">
-                    Price: <span>INR {price} /-</span>{" "}
-                  </p>
-                  <p className="modalRating">
-                    Rating: <span>{rating}/5</span>{" "}
-                  </p>
-                </div>
-                <div>
-                  {sizeIsRadio.isRadio ? (
-                    <Size size={size} setSize={setSizeSelect} />
-                  ) : (
-                    <p className="errorMsg">No size available</p>
-                  )}
-                </div>
-                <div>
-                  {isRadio.isRadio ? (
-                    <Topping
-                      toppings={toppings}
-                      toppingName={toppingName}
-                      setToppingName={setToppingName}
-                    />
-                  ) : (
-                    <p className="errorMsg">No Toppings Available</p>
-                  )}
-                </div>
-                <div className="modalBtnWrap">
+      <Modal
+        className={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div className={classes.paper}>
+            <img className="modalImg" src={img_url} alt="" />
+            <div className="modalWrap">
+              <p className="modalCardName">{name} </p>
+              <p className="modalDesc">{description} </p>
+              <p className="modalIsVeg">{isVeg ? "Veg" : "Non Veg"} </p>
+              <div className="price-rating-wrap">
+                <p className="modalPrice">
+                  Price: <span>INR {price} /-</span>{" "}
+                </p>
+                <p className="modalRating">
+                  Rating: <span>{rating}/5</span>{" "}
+                </p>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginBottom: "10px",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center" }}>
                   <button
-                    className="modalButton"
-                    onClose={handleClose}
-                    onClick={() => {
-                      addItem()
-                      handleClose()
+                    style={{
+                      background: "transparent",
+                      border: "1px solid #FFB800",
+                      padding: "2px 20px",
+                      borderRadius: "5px",
+                      fontSize: "20px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
+                    onClick={() => quantity > 1 && setQuantity(quantity - 1)}
                   >
-                    Add to Cart
+                    -
+                  </button>
+                  <p style={{ padding: "0 15px",fontWeight:'700' }}>{quantity}</p>
+                  <button
+                    style={{
+                      background: "transparent",
+                      border: "1px solid #FFB800",
+                      padding: "2px 20px",
+                      borderRadius: "5px",
+                      fontSize: "20px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                    onClick={() => setQuantity(quantity + 1)}
+                  >
+                    +
                   </button>
                 </div>
               </div>
+              <div>
+                {sizeIsRadio.isRadio ? (
+                  <Size size={size} setSize={setSizeSelect} />
+                ) : (
+                  <p className="errorMsg">No size available</p>
+                )}
+              </div>
+              <div>
+                {isRadio.isRadio ? (
+                  <Topping
+                    toppings={toppings}
+                    toppingName={toppingName}
+                    setToppingName={setToppingName}
+                  />
+                ) : (
+                  <p className="errorMsg">No Toppings Available</p>
+                )}
+              </div>
+              <div className="modalBtnWrap">
+                <button
+                  className="modalButton"
+                  onClose={handleClose}
+                  onClick={() => {
+                    addItem();
+                    handleClose();
+                  }}
+                >
+                  Add to Cart
+                </button>
+              </div>
             </div>
-          </Fade>
-        </Modal>
-      </div>
+          </div>
+        </Fade>
+      </Modal>
     </div>
-  );
+  </div>
+);
 }
 
 export default CardModal;

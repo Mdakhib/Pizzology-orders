@@ -35,6 +35,7 @@ function CartSection() {
                 rating,
                 sizeSelect,
                 toppingName,
+                quantity,
               } = item;
               console.log(item);
               return (
@@ -47,6 +48,11 @@ function CartSection() {
                     </div>
                     <div>
                       <p className="isveg">{isVeg ? "Veg" : "Non Veg"} </p>
+                      <div style={{marginBottom:'10px'}}>
+                        <p>
+                          Quantity: <span style={{fontWeight:'700'}}>{quantity}</span>
+                        </p>
+                      </div>
                       <div className="price-rating-wrap">
                         <p className="price">
                           Price: <span>INR {price} /-</span>{" "}

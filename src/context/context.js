@@ -12,7 +12,7 @@ const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const total = state.basket.reduce((acc, crr) => {
-    return (acc += crr.price);
+    return (acc += crr.price * crr.quantity);
   }, 0);
   state.total = total;
 

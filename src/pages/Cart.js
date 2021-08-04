@@ -11,6 +11,9 @@ export const Cart = () => {
       type: "CLEAR_CART",
     });
   };
+
+  
+
   return (
     <div>
       <Header />
