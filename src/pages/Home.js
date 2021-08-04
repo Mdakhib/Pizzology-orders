@@ -46,11 +46,11 @@ export const Home = () => {
       {/* <About /> */}
       <div className="btnContainer">
         <div className="btnWrapper">
-          <button onClick={() => sortRecipeList("price")}>sort</button>
+          <button onClick={() => sortRecipeList("all")}>All</button>
+          <button onClick={() => sortRecipeList("price")}>price</button>
           <button onClick={() => sortRecipeList("rating")}>rating</button>
           <button onClick={() => sortRecipeList("veg")}>veg</button>
           <button onClick={() => sortRecipeList("nonVeg")}>non veg</button>
-          <button onClick={() => sortRecipeList("all")}>All</button>
         </div>
       </div>
       <div className="cardContainer">

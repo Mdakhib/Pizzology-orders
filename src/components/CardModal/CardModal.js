@@ -121,7 +121,7 @@ function CardModal({
                     onClose={handleClose}
                     onClick={addItem}
                   >
-                    Add Item
+                    Added to Cart
                   </button>
                 </div>
               </div>

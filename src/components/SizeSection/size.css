@@ -18,3 +18,26 @@
 .sizeContent{
 margin-right: 5px;
 }
+
+@media screen and (max-width:960px){
+.sizeWrap {
+    padding: 0 15px;
+
+}
+
+.sizeContent {
+    margin-right: 3px;
+}
+
+}
+
+@media screen and (max-width:960px) {
+.sizeWrap {
+    padding: 0 10px;
+
+}
+
+.sizeContent {
+    margin-right: 1px;
+}
+}

@@ -15,15 +15,37 @@ export const Cart = () => {
     <div>
       <Header />
       {state.basket.length === 0 ? (
-        <h1 style={{marginTop:'120px'}}>Your basket is empty</h1>
+        <h1
+          style={{
+            textAlign: "center",
+            textTransform: "capitalize",
+            color: "#FFB800",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "150px",
+          }}
+        >
+          Your basket is empty
+        </h1>
       ) : (
         <CartSection />
-      )
-      }
-      {state.basket.length >= 1 && (
-        <button onClick={clearBasket}>Clear Item</button>
       )}
-      <h1>total INR {state.total}/- </h1>
+      {state.basket.length >= 1 && (
+        <div className="clearBtnWrap">
+          <button className="clearBtbn" onClick={clearBasket}>
+            Clear Item
+          </button>
+        </div>
+      )}
+      <div>
+        <hr style={{ marginBottom: "15px", marginTop: "15px" }} />
+        <div className="totalPriceWrap">
+          <h1 className="totalPrice">
+            total <span>₹ {state.total}/-</span>{" "}
+          </h1>
+        </div>
+      </div>
     </div>
   );
 };
