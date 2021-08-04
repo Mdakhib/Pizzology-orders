@@ -56,3 +56,9 @@ margin-bottom: 10px;
      text-transform: capitalize;
      color: white;
 }
+
+.errorMsg {
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 10px;
+}

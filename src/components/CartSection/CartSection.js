@@ -63,11 +63,13 @@ function CartSection() {
                       </div>
                       <div className="toppingContentWrap">
                         <span>Topping:</span>
-                        {toppingName.map((item) => (
-                          <div className="toppingsContent">
-                            <p>{item},</p>
-                          </div>
-                        ))}
+                        {toppingName
+                          ? toppingName.map((item) => (
+                              <div className="toppingsContent">
+                                <p>{item},</p>
+                              </div>
+                            ))
+                          : "no topping seleted"}
                       </div>
                       <div className="cardBtnWrap">
                         <button

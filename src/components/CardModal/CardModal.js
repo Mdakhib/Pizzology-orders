@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   paper: {
-    width: "400px",
+    width: "360px",
     backgroundColor: theme.palette.background.paper,
     border: "1px solid #FFB800",
     boxShadow: theme.shadows[5],
@@ -101,7 +101,7 @@ function CardModal({
                   {sizeIsRadio.isRadio ? (
                     <Size size={size} setSize={setSizeSelect} />
                   ) : (
-                    <p>No size available</p>
+                    <p className="errorMsg">No size available</p>
                   )}
                 </div>
                 <div>
@@ -112,11 +112,15 @@ function CardModal({
                       setToppingName={setToppingName}
                     />
                   ) : (
-                    <p>No Toppings Available</p>
+                    <p className="errorMsg">No Toppings Available</p>
                   )}
                 </div>
                 <div className="modalBtnWrap">
-                  <button className="modalButton" onClick={addItem}>
+                  <button
+                    className="modalButton"
+                    onClose={handleClose}
+                    onClick={addItem}
+                  >
                     Add Item
                   </button>
                 </div>

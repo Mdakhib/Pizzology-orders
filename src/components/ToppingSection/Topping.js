@@ -26,7 +26,7 @@ function Topping({ toppings, toppingName, setToppingName }) {
             })}
           </div>
         ) : (
-          <p>no Toppings available</p>
+          <h1 >no Toppings available</h1>
         )
       )}
     </div>
